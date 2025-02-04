@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-//Generates Table
+<!-- Generates Table -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,18 +15,19 @@
     </style>
 </head>
 <body>
-//Gets User Inputs
-<?php
 
+<?php
+// Gets User Inputs
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	$rows = intval($_POST["rows"]);
 	$columns = intval($_POST["columns"]);
 	$min = intval($_POST["min"]);
 	$max = intval($_POST["max"]);
 }
-
+// Checks if inputs are valid if not it informs user and provided return button.
 if ($rows <= 0 || $columns <= 0 || $min > $max){
-	echo "Inputs are invalid please try again.";
+	echo "Inputs are invalid please try again.<br>";
+		echo "<button onclick=history.back()>Change Values </button>";
 	exit;
 }
 	//Generates array with random values using min and max as the parameters for random
@@ -113,6 +114,8 @@ if ($rows <= 0 || $columns <= 0 || $min > $max){
         echo "</tr>";
     }
     echo "</table>";
-
-
+	
+	
 ?>
+<!-- Return to input new values -->
+<button onclick="history.back()">Change Values</button>
