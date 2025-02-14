@@ -51,9 +51,9 @@ for ($i = 0; $i < 25; $i++){
 	
 //Print array
 echo "<tr>
-		<td>placeHolder</td>
+		<td>placeHolder</td> // Place holder for First names
 		<td>$lastName</td>
-		<td>placeHolder</td>
+		<td>placeHolder</td> // Place holder for addresses
         <td>$domain</td>
     </tr>";
 }
