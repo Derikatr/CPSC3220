@@ -24,6 +24,7 @@ $streetTypes = file("street_types.txt", FILE_IGNORE_NEW_LINES);
 $getdomains = fopen("domains.txt","r") or die ("Cannot find file");
 $getLastNames = fopen("last_names.txt","r") or die ("Cannot find file");
 $lastNames = file("last_names.txt", FILE_IGNORE_NEW_LINES);	
+$firstNames = file("first_names.csv", FILE_IGNORE_NEW_LINES);
 $email = fgets($getdomains);
 fclose($getdomains);
 fclose($getLastNames);
@@ -35,7 +36,22 @@ echo "<table>
                 <th>Address </th>
                 <th>Email </th>
             </tr>";
-			
+
+//name generator
+function UniqueNames($used_names = [] , $firstNames, $lastNames){
+
+do{
+    $firstName= $firstNames[array_rand($firstNames)];//random first name generator
+    $lastName= $lastNames[array_rand($lastNames)];//random last name generator
+}
+//search for used names from names
+while(in_array($firstName,$lastName, $used_names));
+$used_names[] = $firstName. '' . $lastName;//stores full name
+return [$firstName, $lastName];
+}
+
+$used_name = [];
+
 $parts = explode(".", $email); // Disects the domains from TLDs
 $validTLDs = ["com", "edu"]; // List of valid TLDs
 $domains = [];
@@ -65,14 +81,15 @@ function generateUniqueAddress(&$usedAddresses, $streetNames, $streetTypes) {
 
 //Work through and randomize name, domains, addresses for 25 UNIQUE People
 for ($i = 0; $i < 25; $i++){
-	$lastName = $lastNames[array_rand($lastNames)];
+	$firstName = $firstNames[array_rand($firstNames)];
+    $lastName = $lastNames[array_rand($lastNames)];
 	$domain = $domains[array_rand($domains)]; 
 	$address = generateUniqueAddress($usedAddresses, $streetNames, $streetTypes);
 
 	
 //Print array
 echo "<tr>
-		<td>placeHolder</td> // Place holder for First names
+		<td>$firstName</td> // Place holder for First names
 		<td>$lastName</td>
 		<td>$address</td> 
         <td>$domain</td>
