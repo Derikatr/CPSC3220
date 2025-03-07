@@ -1,0 +1,7 @@
+create table customer(
+customer_id int primary key, 
+first_name varchar(20)
+last_name varchar(20)
+email varchar(30)
+phone varchar(10)
+address_id int,
