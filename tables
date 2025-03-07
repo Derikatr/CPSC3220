@@ -1,18 +1,25 @@
+create table address(
+	address_id int primary key,
+	street varchar(100),
+	city varchar(100),
+	state varchar(100),
+	zip char(5)
+);
 create table customer (
 	customer_id int primary key,
 	first_name VARCHAR(20),
 	last_name VARCHAR(20),
 	email VARCHAR(30),
 	phone CHAR(10),
-	address_id int
+	address_id int,
 	foreign key (address_id) references address(address_id)
 );
-create table order (
+create table `order` (
 	order_id int primary key,
 	customer_id int,
 	address_id int,
-	foreign key (customer_id) references customer(order_id),
-	foreign key (address_id) references address(order_id)
+	foreign key (customer_id) references customer(customer_id),
+	foreign key (address_id) references address(address_id)
 );
 create table product(
 	product_id int primary key,
@@ -20,3 +27,25 @@ create table product(
 	description varchar(100),
 	weight decimal(3,2),
 	base_cost decimal(8,2)
+);
+
+create table order_item(
+	order_id int,
+	product_id int,
+	quantity int,
+	price decimal(8,2),
+	foreign key (order_id) references `order`(order_id),
+	foreign key (product_id) references (product_id)
+	);
+create table warehouse(
+	warehouse_id int primary key,
+	name varchar(100),
+	address_id int,
+	foreign key (address_id) references address(address_id)
+);
+create table product_warehouse(
+	product_id int,
+	warehouse_id int,
+	foreign key (product_id) references product(product_id),
+	foreign key (warehouse_id) references warehouse(warehouse_id)
+);
