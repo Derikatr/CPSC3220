@@ -1,0 +1,22 @@
+create table customer (
+	customer_id int primary key,
+	first_name VARCHAR(20),
+	last_name VARCHAR(20),
+	email VARCHAR(30),
+	phone CHAR(10),
+	address_id int
+	foreign key (address_id) references address(address_id)
+);
+create table order (
+	order_id int primary key,
+	customer_id int,
+	address_id int,
+	foreign key (customer_id) references customer(order_id),
+	foreign key (address_id) references address(order_id)
+);
+create table product(
+	product_id int primary key,
+	product_name varchar(30),
+	description varchar(100),
+	weight decimal(3,2),
+	base_cost decimal(8,2)
