@@ -1,4 +1,4 @@
-create table address(
+create table address (
 	address_id int primary key,
 	street varchar(100),
 	city varchar(100),
@@ -21,29 +21,31 @@ create table `order` (
 	foreign key (customer_id) references customer(customer_id),
 	foreign key (address_id) references address(address_id)
 );
-create table product(
+create table product (
 	product_id int primary key,
 	product_name varchar(30),
 	description varchar(100),
-	weight decimal(3,2),
-	base_cost decimal(8,2)
+	weight decimal(5,2),
+	base_cost decimal(10,2)
 );
 
-create table order_item(
+create table order_item (
+	create table order_item (
 	order_id int,
 	product_id int,
 	quantity int,
-	price decimal(8,2),
+	price decimal(10,2),
+	primary key (order_id, product_id),
 	foreign key (order_id) references `order`(order_id),
-	foreign key (product_id) references (product_id)
+	foreign key (product_id) references product(product_id)
 	);
-create table warehouse(
+create table warehouse (
 	warehouse_id int primary key,
 	name varchar(100),
 	address_id int,
 	foreign key (address_id) references address(address_id)
 );
-create table product_warehouse(
+create table product_warehouse (
 	product_id int,
 	warehouse_id int,
 	foreign key (product_id) references product(product_id),
