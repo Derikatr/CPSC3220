@@ -35,7 +35,6 @@ create table order_item (
 	product_id int,
 	quantity int,
 	price decimal(10,2),
-	primary key (order_id, product_id),
 	foreign key (order_id) references `order`(order_id),
 	foreign key (product_id) references product(product_id)
 	);
