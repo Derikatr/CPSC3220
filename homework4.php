@@ -16,7 +16,7 @@ $states = file("states.txt", FILE_IGNORE_NEW_LINES);
 $streets = file("street_names.txt", FILE_IGNORE_NEW_LINES);
 $streetTypes = file("street_types.txt", FILE_IGNORE_NEW_LINES);
 
-function getAddress($id, $cities, $streets, $states){
+function getAddress($cities, $streets, $states){
     $zip = rand(10000, 99999); 
     $street = rand(1, 999) . $streets[array_rand($streets)] . $streetTypes[array_rand($streetTypes)];
     $city = $cities[array_rand($cities)];
@@ -25,7 +25,7 @@ function getAddress($id, $cities, $streets, $states){
     return "INSERT INTO address (address_id, street, city, state, zip) VALUES ($id, '$street', '$city', '$state', '$zip');";
 }
 
-function getCustomer($id, $first_names, $last_names, $domains){
+function getCustomer($first_names, $last_names, $domains){
     $first_name = $first_names[array_rand($first_names)];
     $last_name = $last_names[array_rand($last_names)];
     $email = strtolower($first_name) . "." . strtolower($last_name) . "@" . $domains[array_rand($domains)];
@@ -35,7 +35,7 @@ function getCustomer($id, $first_names, $last_names, $domains){
     return "INSERT INTO customer (customer_id, first_name, last_name, email, phone, address_id) VALUES ($id, '$first_name', '$last_name', '$email', '$phone', $address_id);";
 }
 
-function getProduct($id, $products){
+function getProduct($products){
     $product_name = $products[array_rand($products)];
     $descriptions = ["Great for sitting", "Great for eating", "Family Friendly", "Storage"];
     $description = $descriptions[array_rand($descriptions)];
