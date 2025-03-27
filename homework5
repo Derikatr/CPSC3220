@@ -23,7 +23,7 @@ inventory_id int,
 product_name VARCHAR(30) DEFAULT NULL,
 product_type VARCHAR(30) DEFAULT NULL,
 purchase_price DECIMAL (10,2),
-sale_price int DECIMAL (10,2),
+sale_price DECIMAL (10,2),
 status VARCHAR(30),
 PRIMARY KEY (inventory_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
