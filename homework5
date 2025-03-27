@@ -17,3 +17,13 @@ sale_price int DECIMAL (10,2),
 status VARCHAR(30),
 PRIMARY KEY (inventory_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE supplier(
+supplier_id int,
+first_name VARCHAR(20) DEFAULT NULL,
+last_name	 VARCHAR(20) DEFAULT NULL,
+email varchar(30) DEFAULT NULL,
+phone char(10) DEFAULT NULL,
+address_id int,
+PRIMARY KEY (supplier_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
