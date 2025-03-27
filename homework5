@@ -72,7 +72,7 @@ foreign key (invoice_id) references invoice(invoice_id),
 foreign key (customer_id) references customer(customer_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE check(
+CREATE TABLE `check`(
 check_id int,
 amount DECIMAL(10,2),
 payment_date DATE,
