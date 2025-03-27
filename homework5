@@ -7,3 +7,13 @@ phone char(10) DEFAULT NULL,
 address_id int,
 PRIMARY KEY (customer_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE inventory (
+inventory_id int,
+product_name VARCHAR(30) DEFAULT NULL,
+product_type VARCHAR(30) DEFAULT NULL,
+purchase_price DECIMAL (10,2),
+sale_price int DECIMAL (10,2),
+status VARCHAR(30),
+PRIMARY KEY (inventory_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
