@@ -31,7 +31,7 @@ PRIMARY KEY (inventory_id)
 CREATE TABLE supplier(
 supplier_id int,
 first_name VARCHAR(20) DEFAULT NULL,
-last_name	VARCHAR(20) DEFAULT NULL,
+last_name VARCHAR(20) DEFAULT NULL,
 email varchar(30) DEFAULT NULL,
 phone char(10) DEFAULT NULL,
 address_id int,
@@ -51,7 +51,7 @@ PRIMARY KEY (invoice_id)
 CREATE TABLE employee(
 employee_id int,
 first_name VARCHAR(20) DEFAULT NULL,
-last_name	VARCHAR(20) DEFAULT NULL,
+last_name VARCHAR(20) DEFAULT NULL,
 role VARCHAR(30),
 phone char(10), DEFAULT NULL,
 email varchar(30) DEFAULT NULL,
