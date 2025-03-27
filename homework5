@@ -48,15 +48,6 @@ foreign key (`customer_id`) references customer(`customer_id`),
 PRIMARY KEY (invoice_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE invoice(
-invoice_id int,
-invoice_date DATE,
-total_amount DECIMAL (10,2),
-customer_id int,
-foreign key (`customer_id`) references customer(`customer_id`),
-PRIMARY KEY (invoice_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE employee(
 employee_id int,
 first_name VARCHAR(20) DEFAULT NULL,
