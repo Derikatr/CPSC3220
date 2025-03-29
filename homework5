@@ -27,7 +27,7 @@ purchase_price DECIMAL (10,2),
 sale_price DECIMAL (10,2),
 status VARCHAR(30),
 supplier_id INT,
-PRIMARY KEY (inventory_id)
+PRIMARY KEY (inventory_id),
 FOREIGN KEY (supplier_id) REFERENCES supplier(supplier_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
