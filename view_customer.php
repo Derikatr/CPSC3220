@@ -1,7 +1,19 @@
 <?php
-    include("database.php");
+   $db_server = "localhost";
+    $db_user = "root";
+    $db_pass = " ";
+    $db_name = "sakiladb";
+    $port = 3306;
+    $conn = " ";
 
-    $sql = "
+    $conn = mysqli_connect($db_server, $db_user, $db_pass,$db_name, $port);
+
+    if($conn) {
+        echo "Connected successfully";
+    }
+    else{
+        echo "Connection failed";
+    }
 SELECT 
     c.first_name,
     c.last_name,
