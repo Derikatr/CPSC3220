@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Film</title>
+</head>
+<body>
+    <h1>Add a New Film</h1>
+    <form action="add_film.php" method="POST">
+        Title: <input type="text" name="title"><br><br>
+        Description: <textarea name="description"></textarea><br><br>
+        Release Year: <input type="text" name="release_year"><br><br>
+        Language ID: <input type="text" name="language_id"><br><br>
+        Rental Duration: <input type="text" name="rental_duration"><br><br>
+        Rental Rate: <input type="text" name="rental_rate"><br><br>
+        Length: <input type="text" name="length"><br><br>
+        Replacement Cost: <input type="text" name="replacement_cost"><br><br>
+        Rating:
+        <select name="rating">
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+            <option value="NC-17">NC-17</option>
+        </select><br><br>
+        Special Features:
+        <select name="special_features">
+            <option value="Trailers">Trailers</option>
+            <option value="Commentaries">Commentaries</option>
+            <option value="Deleted Scenes">Deleted Scenes</option>
+            <option value="Behind the Scenes">Behind the Scenes</option>
+        </select><br><br>
+
+        <button type="submit">Save</button>
+        <button type="button" onclick="location.href='manager.html'">Cancel</button>
+    </form>
+</body>
+</html>
 
